@@ -15,8 +15,7 @@ classifiers = ["Programming Language :: Python :: 3"]
 readme = "README.md"
 version = "0.1.0"
 
-dependencies = [
-]
+dependencies = ["boto3>=1,<2", "requests>=2,<3"]
 
 [project.urls]
 Repository = "https://github.com/AllenNeuralDynamics/aind-s3-cache/"
@@ -24,9 +23,16 @@ Issues = "https://github.com/AllenNeuralDynamics/aind-s3-cache/issues"
 Changelog = "https://github.com/AllenNeuralDynamics/aind-s3-cache/blob/main/CHANGELOG.md"
 
 
-
 [dependency-groups]
-dev = ["codespell", "pytest", "pytest-cov", "ruff", "interrogate", "mypy"]
+types = ["mypy", "types-requests", "boto3-stubs[s3]", "types-setuptools"]
+dev = [
+  { include-group = "types" },
+  "codespell",
+  "pytest",
+  "pytest-cov",
+  "ruff",
+  "interrogate",
+]
 vscode = [{ include-group = "dev" }, "ipykernel", "pip", "ipympl"]
 
 docs = [
@@ -35,9 +41,12 @@ docs = [
   "sphinx-autodoc-typehints",
   "sphinx-copybutton",
   "myst-parser",
+  "myst-nb",
+  "jupyter",
   "nbsphinx",
   "furo",
   "sphinx-multiversion",
+  "moto[s3]",
 ]
 
 
@@ -53,7 +62,9 @@ target-version = "py313"
 
 [tool.ruff.lint]
 extend-select = ["Q", "RUF100", "C90", "I", "F", "E", "W", "UP", "ANN", "PYI"]
-extend-ignore = ["ANN101", "ANN102"]  # Skip self/cls type annotations
+extend-ignore = ["ANN401"]
+# Skip all type annotation checks in tests
+per-file-ignores = { "tests/*.py" = ["ANN"] }
 
 mccabe = { max-complexity = 14 }
 pydocstyle = { convention = "numpy" }
@@ -86,10 +97,7 @@ exclude = [
 
 [tool.commitizen]
 version_provider = "pep621"
-version_files = [
-  "pyproject.toml",
-  "src/aind_s3_cache/__init__.py:__version__",
-]
+version_files = ["pyproject.toml", "src/aind_s3_cache/__init__.py:__version__"]
 update_changelog_on_bump = true
 tag_format = "v$version"
 major_version_zero = true
