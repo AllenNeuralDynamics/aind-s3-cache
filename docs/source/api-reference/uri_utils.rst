@@ -5,6 +5,7 @@ uri_utils module
    :members:
    :undoc-members:
    :show-inheritance:
+   :no-index:
 
 Overview
 --------

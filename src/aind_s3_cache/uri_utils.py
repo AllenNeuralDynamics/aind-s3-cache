@@ -24,7 +24,7 @@ as_pathlike(base)
     ``PurePosixPath`` (S3) or ``Path`` (local).
 as_string(kind, bucket, path)
     Convert the tuple back to ``"s3://bucket/key"`` or a local path string.
-join_any(base, *parts)
+join_any(base, \\*parts)
     Join path components under either scheme and return a string.
 
 Notes
@@ -236,10 +236,10 @@ def as_pathlike(
     -------
     tuple
         ``(kind, bucket, path)`` where:
-        - ``kind`` is ``"s3"`` or ``"file"``,
-        - ``bucket`` is ``None`` for local,
-        - ``path`` is ``PurePosixPath`` (S3), ``PureWindowsPath`` (Windows),
-          or ``Path`` (local).
+          - ``kind`` is ``"s3"`` or ``"file"``,
+          - ``bucket`` is ``None`` for local,
+          - ``path`` is ``PurePosixPath`` (S3), ``PureWindowsPath`` (Windows),
+            or ``Path`` (local).
 
     Notes
     -----

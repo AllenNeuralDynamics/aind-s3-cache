@@ -120,7 +120,7 @@ def get_json_url(url: str) -> dict[str, Any]:
     return cast(dict[str, Any], raw)
 
 
-def get_json(file_url_or_bucket: str, key: str | None = None, *args: Any, **kwargs: dict[str, Any]) -> dict[str, Any]:
+def get_json(file_url_or_bucket: str, key: str | None = None, *args: Any, **kwargs: Any) -> dict[str, Any]:
     """
     Read a JSON file from local path, file:// URI, HTTP(S), or S3.
 

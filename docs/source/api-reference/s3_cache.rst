@@ -5,6 +5,7 @@ s3_cache module
    :members:
    :undoc-members:
    :show-inheritance:
+   :no-index:
 
 Overview
 --------

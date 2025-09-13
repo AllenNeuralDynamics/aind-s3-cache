@@ -199,9 +199,9 @@ def get_local_path_for_resource(
 
     - Local path: returned as-is.
     - s3://bucket/key: downloads into a cache keyed by ETag and returns that
-    path.
+      path.
     - Supports anonymous (unsigned) access for public buckets with
-    `anonymous=True`.
+      `anonymous=True`.
     - Atomic on writes; safe for concurrent processes.
     """
     p = pathlib.Path(str(uri_or_path))

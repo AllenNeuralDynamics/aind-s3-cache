@@ -17,9 +17,7 @@ main() {
   if [ $checks ]
   then
     uv run --frozen ruff check
-    
     uv run --frozen mypy
-    
     uv run --frozen interrogate -v
     uv run --frozen codespell --check-filenames
     uv run --frozen pytest --cov aind_s3_cache

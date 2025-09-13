@@ -20,10 +20,9 @@ jobs:
   deploy:
     uses: AllenNeuralDynamics/galen-uv-workflows/.github/workflows/_docs-deploy-reusable.yml@add-docs
     with:
-      python-version: '3.12'
-      use-uv: true
+      python-version: '3.13'
       install-extras: '.[docs]'
       docs-path: 'docs'
-      output-dir: 'docs/_build/html'
+      output-dir: 'docs/build/html'
       run-apidoc: false
       # apidoc-args: '-o docs/api src/your_package -f'
