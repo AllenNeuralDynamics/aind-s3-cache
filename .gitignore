@@ -69,7 +69,14 @@ instance/
 .scrapy
 
 # Sphinx documentation
+# Sphinx build output
 docs/_build/
+docs/_doctrees/
+
+# Autosummary / generated stubs
+docs/generated/
+docs/_autosummary/
+docs/source/api-reference/generated/
 
 # PyBuilder
 target/

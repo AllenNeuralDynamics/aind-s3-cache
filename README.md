@@ -9,6 +9,11 @@
 [![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border.json)](https://github.com/copier-org/copier)
 Small library providing a transparent local cache for S3 objects.
 
+## Key Features
+
+- **S3 Integration**: Built-in support for AWS S3 with caching and anonymous access
+- **Multi-source JSON Reading**: Unified JSON loading from local files, HTTP URLs, and S3 URIs
+
 ## Installation
 
 If you choose to clone the repository, you can install the package by running the following command from the root directory of the repository:

@@ -1,0 +1,28 @@
+name: docs (deploy)
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]    # optional; rebuild on releases
+  workflow_dispatch:
+
+# Required for Pages when calling a reusable workflow that deploys
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    uses: AllenNeuralDynamics/galen-uv-workflows/.github/workflows/_docs-deploy-reusable.yml@add-docs
+    with:
+      python-version: '3.13'
+      install-extras: '.[docs]'
+      docs-path: 'docs'
+      output-dir: 'docs/build/html'
+      run-apidoc: false
+      # apidoc-args: '-o docs/api src/your_package -f'
