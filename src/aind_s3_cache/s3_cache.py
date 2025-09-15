@@ -4,18 +4,24 @@ import hashlib
 import os
 import pathlib
 import re
+import sys
 import tempfile
 from contextlib import AbstractContextManager
 from dataclasses import dataclass
 from pathlib import Path
 from types import TracebackType
-from typing import TYPE_CHECKING, Self
+from typing import TYPE_CHECKING
 from urllib.parse import urlparse
 
 import boto3
 from botocore import UNSIGNED
 from botocore.config import Config
 from botocore.exceptions import ClientError
+
+if sys.version_info >= (3, 11):
+    from typing import Self  # stdlib
+else:
+    from typing_extensions import Self  # backport on 3.10
 
 if TYPE_CHECKING:
     from mypy_boto3_s3 import S3Client
