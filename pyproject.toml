@@ -56,8 +56,8 @@ docs = [
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.setuptools.dynamic]
-readme = { file = "README.md", content-type = "text/markdown" }
+[tool.setuptools.package-data]
+"aind_s3_cache" = ["py.typed"]
 
 [tool.ruff]
 line-length = 120
@@ -100,7 +100,7 @@ exclude = [
 
 [tool.commitizen]
 version_provider = "pep621"
-version_files = ["pyproject.toml", "src/aind_s3_cache/__init__.py:__version__"]
+version_files = ["src/aind_s3_cache/__init__.py:__version__"]
 update_changelog_on_bump = true
 tag_format = "v$version"
 major_version_zero = true
